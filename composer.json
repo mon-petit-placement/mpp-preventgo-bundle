@@ -1,0 +1,33 @@
+{
+    "name": "mpp/preventgo-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony PreventGo Bundle",
+    "keywords": ["json", "yaml", "api", "xmlrpc"],
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Gabriel BONDAZ",
+        "email": "gabriel.bondaz@idci-consulting.fr",
+        "homepage": "https://www.idci-consulting.fr"
+      }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "eightpoints/guzzle-bundle": "^8.0",
+        "symfony/dependency-injection": "^4.0",
+        "symfony/framework-bundle": "^4.0",
+        "symfony/options-resolver": "^4.0"
+    },
+    "autoload":{
+      "psr-4":{
+        "Mpp\\PreventGoBundle\\": ""
+      },
+      "exclude-from-classmap": [
+        "Resources/",
+        "Tests/"
+      ]
+    },
+    "require-dev": {
+      "phpunit/phpunit": "7"
+    }
+}
