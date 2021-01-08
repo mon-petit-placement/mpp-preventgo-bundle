@@ -5,6 +5,7 @@ namespace Mpp\PreventgoBundle\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
+use Mpp\PreventgoBundle\Model\Result;
 use Psr\Log\LoggerInterface;
 
 class RestHttpClient
@@ -44,9 +45,12 @@ class RestHttpClient
     }
 
     /**
+     * @param array $parameters
+     * @param string $filePath
      *
+     * @return Result
      */
-    public function check()
+    public function check(array $parameters, string $filePath): Result
     {
         die('TODO');
     }
