@@ -2,7 +2,7 @@
 
 namespace Mpp\PreventgoBundle;
 
-use Mpp\PreventGoBundle\DependencyInjection\Compiler\MppPreventgoCompilerPass;
+use Mpp\PreventgoBundle\DependencyInjection\Compiler\MppPreventgoCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
