@@ -1,6 +1,6 @@
 <?php
 
-namespace Mpp\PreventGoBundle\DependencyInjection;
+namespace Mpp\PreventgoBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Mpp\ApicilClientBundle\DependencyInjection\Compiler;
+namespace Mpp\PreventgoBundle\DependencyInjection\Compiler;
 
-use Mpp\PreventGoBundle\Client\RestHttpClient;
-use Mpp\PreventGoBundle\DependencyInjection\Configuration;
+use Mpp\PreventgoBundle\Client\RestHttpClient;
+use Mpp\PreventgoBundle\DependencyInjection\Configuration;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-class MppPreventGoCompilerPass implements CompilerPassInterface
+class MppPreventgoCompilerPass implements CompilerPassInterface
 {
     /**
      * {@inheritdoc}

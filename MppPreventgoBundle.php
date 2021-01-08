@@ -1,17 +1,17 @@
 <?php
 
-namespace Mpp\PreventGoBundle;
+namespace Mpp\PreventgoBundle;
 
-use Mpp\PreventGoBundle\DependencyInjection\Compiler\MppPreventGoCompilerPass;
+use Mpp\PreventGoBundle\DependencyInjection\Compiler\MppPreventgoCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class MppPreventGoBundle extends Bundle
+class MppPreventgoBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
         parent::build($container);
 
-        $container->addCompilerPass(new MppPreventGoCompilerPass());
+        $container->addCompilerPass(new MppPreventgoCompilerPass());
     }
 }

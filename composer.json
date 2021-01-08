@@ -20,7 +20,7 @@
     },
     "autoload":{
       "psr-4":{
-        "Mpp\\PreventGoBundle\\": ""
+        "Mpp\\PreventgoBundle\\": ""
       },
       "exclude-from-classmap": [
         "Resources/",

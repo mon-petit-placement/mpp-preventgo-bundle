@@ -1,6 +1,6 @@
 <?php
 
-namespace Mpp\PreventGoBundle\Client;
+namespace Mpp\PreventgoBundle\Client;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
