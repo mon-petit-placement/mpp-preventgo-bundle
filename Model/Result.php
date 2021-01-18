@@ -86,11 +86,6 @@ class Result
         return $this->documentTypeFamily;
     }
 
-    public function getRequestInfo(): ?RequestInfo
-    {
-        return $this->requestInfo;
-    }
-
     public function setDocumentType(string $documentType): self
     {
         $this->documentType = $documentType;

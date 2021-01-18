@@ -11,13 +11,13 @@ class IdentityDocumentDetails
 
     public function set__(): self
     {
-        $this-> = ;
+        $this->__ = $__;
 
         return self;
     }
 
-    public function get__():
+    public function get__(): string
     {
-        return ;
+        return $this->__;
     }
 }

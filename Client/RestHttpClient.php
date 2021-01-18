@@ -58,7 +58,7 @@ class RestHttpClient
         $this->configureParameters($resolver);
         $resolvedParameters = $resolver->resolve(array_merge($parameters, [
             'file_1' => $filePath,
-        ]);
+        ]));
 
         $method = 'POST';
         $url = '/v2/any';
