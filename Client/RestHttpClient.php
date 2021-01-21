@@ -9,6 +9,7 @@ use Mpp\PreventgoBundle\Model\Result;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class RestHttpClient
 {
@@ -16,14 +17,18 @@ class RestHttpClient
 
     protected ClientInterface $httpClient;
 
+    protected SerializerInterface $serializer;
+
     /**
      * @param LoggerInterface $logger
      * @param ClientInterface $httpClient
+     * @param SerializerInterface $serializer
      */
-    public function __construct(LoggerInterface $logger, ClientInterface $httpClient)
+    public function __construct(LoggerInterface $logger, ClientInterface $httpClient, SerializerInterface $serializer)
     {
         $this->logger = $logger;
         $this->httpClient = $httpClient;
+        $this->serializer = $serializer;
     }
 
     /**
@@ -56,21 +61,27 @@ class RestHttpClient
     {
         $resolver = new OptionsResolver();
         $this->configureParameters($resolver);
-        $resolvedParameters = $resolver->resolve(array_merge($parameters, [
-            'file_1' => $filePath,
-        ]));
+        $resolvedParameters = $resolver->resolve($parameters);
 
         $method = 'POST';
         $url = '/v2/any';
+        $multipart = self::buildMultipart($resolvedParameters, [$filePath]);
 
         $this->logger->info('PreventGo Api call', [
             'method' => $method,
             'url' => $url,
-            'parameters' => $resolvedParameters,
+            'multipart' => $multipart,
             'headers' => $this->httpClient->getConfig('headers'),
         ]);
 
-        return $this->httpClient->request($method, $url, $resolvedParameters);
+        try {
+            $response = $this->httpClient->request($method, $url, ['multipart' => $multipart]);
+            dd($this->serializer->deserialize($response->getBody(), Result::class, 'json'));
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+
+            return new Result();
+        }
     }
 
     private function configureParameters(OptionsResolver $resolver)
@@ -82,9 +93,36 @@ class RestHttpClient
             ->setDefault('vehicle', null)->setAllowedTypes('vehicle', ['null', 'array'])
             ->setDefault('options', null)->setAllowedTypes('options', ['null', 'array'])
             ->setDefault('additional', null)->setAllowedTypes('additional', ['null', 'array'])
-            ->setRequired('file_1')->setAllowedTypes('file_1', ['string'])->setNormalizer('file_1', function(Options $options, $value) {
-
-            })
         ;
+    }
+
+    private static function buildMultipart(array $parameters, array $files): array
+    {
+        $multipart = [];
+        foreach ($parameters as $name => $contents) {
+            if (null !== $contents) {
+                $multipart[] = self::buildMultipartItem($name, $contents);
+            }
+        }
+
+        foreach ($files as $i => $filePath) {
+            $multipart[] = self::buildMultipartFileItem($filePath, $i);
+        }
+
+        return $multipart;
+    }
+
+    private static function buildMultipartItem(string $name, $contents): array
+    {
+        return ['name' => $name, 'contents' => json_encode($contents)];
+    }
+
+    private static function buildMultipartFileItem(string $filePath, int $fileIndex = 0): array
+    {
+        return [
+            'Content-type' => 'multipart/form-data',
+            'name' => sprintf('file_%d', $fileIndex + 1),
+            'contents' => fopen($filePath, 'r'),
+        ];
     }
 }

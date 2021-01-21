@@ -12,11 +12,12 @@
       }
     ],
     "require": {
-        "php": ">=7.4",
-        "eightpoints/guzzle-bundle": "^8.0",
-        "symfony/dependency-injection": "^4.0",
-        "symfony/framework-bundle": "^4.0",
-        "symfony/options-resolver": "^4.0"
+      "php": ">=7.4",
+      "eightpoints/guzzle-bundle": "^8.0",
+      "symfony/dependency-injection": "^4.0",
+      "symfony/framework-bundle": "^4.0",
+      "symfony/options-resolver": "^4.0",
+      "symfony/serializer": "^4.0"
     },
     "autoload":{
       "psr-4":{

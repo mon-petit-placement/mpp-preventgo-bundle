@@ -13,7 +13,7 @@ class PayslipLegalEntityControls
     {
         $this->__ = $__;
 
-        return self;
+        return $this;
     }
 
     public function get__(): string

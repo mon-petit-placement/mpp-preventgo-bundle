@@ -17,7 +17,7 @@ class RequestError
     {
         $this->message = $message;
 
-        return self;
+        return $this;
     }
 
     public function getMessage(): ?string

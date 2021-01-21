@@ -8,7 +8,7 @@ class RequestInfo
     const STATE_DONE = 'DONE';
     const STATE_ERROR = 'ERROR';
 
-    protected ?int $timestamp;
+    protected ?string $timestamp;
     protected ?string $state;
     protected ?int $duration;
     protected ?string $uuid;
@@ -25,14 +25,14 @@ class RequestInfo
         $this->callbackSecretToken = null;
     }
 
-    public function setTimestamp(int $timestamp): self
+    public function setTimestamp(string $timestamp): self
     {
         $this->timestamp = $timestamp;
 
-        return self;
+        return $this;
     }
 
-    public function getTimestamp(): ?int
+    public function getTimestamp(): ?string
     {
         return $this->timestamp;
     }
@@ -41,7 +41,7 @@ class RequestInfo
     {
         $this->state = $state;
 
-        return self;
+        return $this;
     }
 
     public function getState(): ?string
@@ -53,7 +53,7 @@ class RequestInfo
     {
         $this->duration = $duration;
 
-        return self;
+        return $this;
     }
 
     public function getDuration(): ?int
@@ -65,7 +65,7 @@ class RequestInfo
     {
         $this->uuid = $uuid;
 
-        return self;
+        return $this;
     }
 
     public function getUuid(): ?string
@@ -77,7 +77,7 @@ class RequestInfo
     {
         $this->remainingRequests = $remainingRequests;
 
-        return self;
+        return $this;
     }
 
     public function getRemainingRequests(): ?int
@@ -89,7 +89,7 @@ class RequestInfo
     {
         $this->callbackSecretToken = $callbackSecretToken;
 
-        return self;
+        return $this;
     }
 
     public function getCallbackSecretToken(): ?string
