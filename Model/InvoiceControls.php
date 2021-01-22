@@ -4,20 +4,50 @@ namespace Mpp\PreventgoBundle\Model;
 
 class InvoiceControls
 {
+    protected ?HolderControls $holder;
+    protected ?InvoiceDocumentControls $document;
+    protected ?AdditionalControls $additional;
+
     public function __construct()
     {
-
+        $this->holder = null;
+        $this->document = null;
+        $this->additional = null;
     }
 
-    public function set__(): self
+    public function setHolder(HolderControls $holder): self
     {
-        $this->__ = $__;
+        $this->holder = $holder;
 
         return $this;
     }
 
-    public function get__(): string
+    public function getHolder(): ?HolderControls
     {
-        return $this->__;
+        return $this->holder;
+    }
+
+    public function setDocument(InvoiceDocumentControls $document): self
+    {
+        $this->document = $document;
+
+        return $this;
+    }
+
+    public function getDocument(): ?InvoiceDocumentControls
+    {
+        return $this->document;
+    }
+
+    public function setAdditional(AdditionalControls $additional): self
+    {
+        $this->additional = $additional;
+
+        return $this;
+    }
+
+    public function getAdditional(): ?AdditionalControls
+    {
+        return $this->additional;
     }
 }

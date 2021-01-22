@@ -42,10 +42,14 @@ class Result
     protected ?string $certificateUrl;
     protected ?array $pages; // TODO: DocumentPage
     protected ?RequestError $error;
+    protected ?int $controlsSummary;
+    protected ?array $keysWithError;
+
+    protected ?AddressDocumentInfo $addressDocumentInfo;
+
     // TODO
     protected ?BankAccountInfo $bankAccountInfo;
     protected ?TaxDocumentInfo $taxDocumentInfo;
-    protected ?AddressDocumentInfo $addressDocumentInfo;
     protected ?PayslipDocumentInfo $payslipDocumentInfo;
     protected ?FamilyAllowanceDocumentInfo $familyAllowanceDocumentInfo;
     protected ?IdentityDocumentInfo $identityDocumentInfo;
@@ -60,6 +64,10 @@ class Result
         $this->certificateUrl = null;
         $this->pages = null;
         $this->error = null;
+        $this->controlsSummary = null;
+        $this->keysWithError = null;
+
+        $this->addressDocumentInfo = null;
     }
 
     public function setRequestInfo(RequestInfo $requestInfo): self
@@ -132,5 +140,42 @@ class Result
     public function getError(): ?RequestError
     {
         return $this->error;
+    }
+
+    public function setControlsSummary(int $controlsSummary): self
+    {
+        $this->controlsSummary = $controlsSummary;
+
+        return $this;
+    }
+
+    public function getControlsSummary(): ?int
+    {
+        return $this->controlsSummary;
+    }
+
+    public function setKeysWithError(array $keysWithError): self
+    {
+        $this->keysWithError = $keysWithError;
+
+        return $this;
+    }
+
+    public function getKeysWithError(): ?array
+    {
+        return $this->keysWithError;
+    }
+
+
+    public function setAddressDocumentInfo(AddressDocumentInfo $addressDocumentInfo): self
+    {
+        $this->addressDocumentInfo = $addressDocumentInfo;
+
+        return $this;
+    }
+
+    public function getAddressDocumentInfo(): ?AddressDocumentInfo
+    {
+        return $this->addressDocumentInfo;
     }
 }

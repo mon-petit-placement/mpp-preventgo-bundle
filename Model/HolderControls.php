@@ -4,20 +4,22 @@ namespace Mpp\PreventgoBundle\Model;
 
 class HolderControls
 {
+    protected ?HolderDocumentConsistency $documentConsistency;
+
     public function __construct()
     {
-
+        $this->documentConsistency = null;
     }
 
-    public function set__(): self
+    public function setDocumentConsistency(HolderDocumentConsistency $documentConsistency): self
     {
-        $this->__ = $__;
+        $this->documentConsistency = $documentConsistency;
 
         return $this;
     }
 
-    public function get__(): string
+    public function getDocumentConsistency(): ?HolderDocumentConsistency
     {
-        return $this->__;
+        return $this->documentConsistency;
     }
 }

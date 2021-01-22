@@ -4,20 +4,36 @@ namespace Mpp\PreventgoBundle\Model;
 
 class AddressDocumentInfo
 {
+    protected ?InvoiceDocumentDetails $documentDetails;
+    protected ?InvoiceControls $controlsGroups;
+
     public function __construct()
     {
-
+        $this->documentDetails = null;
+        $this->controlsGroups = null;
     }
 
-    public function set__(): self
+    public function setDocumentDetails(InvoiceDocumentDetails $documentDetails): self
     {
-        $this->__ = $__;
+        $this->documentDetails = $documentDetails;
 
         return $this;
     }
 
-    public function get__(): string
+    public function getDocumentDetails(): ?InvoiceDocumentDetails
     {
-        return $this->__;
+        return $this->documentDetails;
+    }
+
+    public function setControlsGroups(InvoiceControls $controlsGroups): self
+    {
+        $this->controlsGroups = $controlsGroups;
+
+        return $this;
+    }
+
+    public function getControlsGroups(): ?InvoiceControls
+    {
+        return $this->controlsGroups;
     }
 }
