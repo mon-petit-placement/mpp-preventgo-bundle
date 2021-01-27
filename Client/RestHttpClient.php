@@ -5,6 +5,7 @@ namespace Mpp\PreventgoBundle\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
+use Mpp\PreventgoBundle\Model\RequestError;
 use Mpp\PreventgoBundle\Model\Result;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\OptionsResolver\Options;
@@ -76,11 +77,18 @@ class RestHttpClient
 
         try {
             $response = $this->httpClient->request($method, $url, ['multipart' => $multipart]);
-            dd($this->serializer->deserialize($response->getBody(), Result::class, 'json'));
-        } catch (\Exception $e) {
-            dd($e->getMessage());
 
-            return new Result();
+            return $this->serializer->deserialize($response->getBody(), Result::class, 'json');
+        } catch (\Exception $e) {
+            $error = new RequestError();
+            $error
+                ->setMessage($e->getMessage())
+                ->setCode(-1)
+            ;
+
+            return (new Result())
+                ->setError($error)
+            ;
         }
     }
 
