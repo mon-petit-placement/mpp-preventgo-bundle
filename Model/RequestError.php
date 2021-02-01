@@ -4,8 +4,8 @@ namespace Mpp\PreventgoBundle\Model;
 
 class RequestError
 {
-    protected string $message;
-    protected int $code;
+    protected ?string $message;
+    protected ?int $code;
 
     public function __construct()
     {
