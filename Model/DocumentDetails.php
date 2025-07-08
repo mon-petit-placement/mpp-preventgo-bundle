@@ -4,20 +4,36 @@ namespace Mpp\PreventgoBundle\Model;
 
 class DocumentDetails
 {
+    protected ?string $iban;
+    protected ?string $bicCode;
+
     public function __construct()
     {
-
+        $this->iban = null;
+        $this->bicCode = null;
     }
 
-    public function set__(): self
+    public function setIban(?string $iban): self
     {
-        $this->__ = $__;
+        $this->iban = $iban;
 
         return $this;
     }
 
-    public function get__(): string
+    public function getIban(): ?string
     {
-        return $this->__;
+        return $this->iban;
+    }
+
+    public function setBicCode(?string $bicCode): self
+    {
+        $this->bicCode = $bicCode;
+
+        return $this;
+    }
+
+    public function getBicCode(): ?string
+    {
+        return $this->bicCode;
     }
 }

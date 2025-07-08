@@ -44,11 +44,10 @@ class Result
     protected ?RequestError $error;
     protected ?int $controlsSummary;
     protected ?array $keysWithError;
-
     protected ?AddressDocumentInfo $addressDocumentInfo;
+    protected ?BankAccountInfo $bankAccountInfo;
 
     // TODO
-    protected ?BankAccountInfo $bankAccountInfo;
     protected ?TaxDocumentInfo $taxDocumentInfo;
     protected ?PayslipDocumentInfo $payslipDocumentInfo;
     protected ?FamilyAllowanceDocumentInfo $familyAllowanceDocumentInfo;
@@ -66,8 +65,8 @@ class Result
         $this->error = null;
         $this->controlsSummary = null;
         $this->keysWithError = null;
-
         $this->addressDocumentInfo = null;
+        $this->bankAccountInfo = null;
     }
 
     public function setRequestInfo(RequestInfo $requestInfo): self
@@ -177,5 +176,17 @@ class Result
     public function getAddressDocumentInfo(): ?AddressDocumentInfo
     {
         return $this->addressDocumentInfo;
+    }
+
+    public function setBankAccountInfo(BankAccountInfo $bankAccountInfo): self
+    {
+        $this->bankAccountInfo = $bankAccountInfo;
+
+        return $this;
+    }
+
+    public function getBankAccountInfo(): ?BankAccountInfo
+    {
+        return $this->bankAccountInfo;
     }
 }
