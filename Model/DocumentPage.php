@@ -28,6 +28,7 @@ class DocumentPage
     public function setTypeRecognized(?string $typeRecognized): self
     {
         $this->typeRecognized = $typeRecognized;
+
         return $this;
     }
 
@@ -39,6 +40,7 @@ class DocumentPage
     public function setQuality(?QualityControls $quality): self
     {
         $this->quality = $quality;
+
         return $this;
     }
 
@@ -50,6 +52,7 @@ class DocumentPage
     public function setNoAnnotationFound(?string $noAnnotationFound): self
     {
         $this->noAnnotationFound = $noAnnotationFound;
+
         return $this;
     }
 
@@ -61,6 +64,7 @@ class DocumentPage
     public function setNoTamperingSignFound(?string $noTamperingSignFound): self
     {
         $this->noTamperingSignFound = $noTamperingSignFound;
+
         return $this;
     }
 
@@ -72,6 +76,7 @@ class DocumentPage
     public function setIbanFound(?string $ibanFound): self
     {
         $this->ibanFound = $ibanFound;
+
         return $this;
     }
 
@@ -83,6 +88,7 @@ class DocumentPage
     public function setIbanFormatValid(?string $ibanFormatValid): self
     {
         $this->ibanFormatValid = $ibanFormatValid;
+
         return $this;
     }
 
@@ -94,6 +100,7 @@ class DocumentPage
     public function setIbanNotPublic(?string $ibanNotPublic): self
     {
         $this->ibanNotPublic = $ibanNotPublic;
+
         return $this;
     }
 
@@ -105,6 +112,7 @@ class DocumentPage
     public function setBicCodeFound(?string $bicCodeFound): self
     {
         $this->bicCodeFound = $bicCodeFound;
+
         return $this;
     }
 
