@@ -4,20 +4,36 @@ namespace Mpp\PreventgoBundle\Model;
 
 class BankAccountInfo
 {
+    protected ?DocumentDetails $documentDetails;
+    protected ?ControlsGroups $controlsGroups;
+
     public function __construct()
     {
-
+        $this->documentDetails = null;
+        $this->controlsGroups = null;
     }
 
-    public function set__(): self
+    public function getDocumentDetails(): ?DocumentDetails
     {
-        $this->__ = $__;
+        return $this->documentDetails;
+    }
+
+    public function setDocumentDetails(?DocumentDetails $documentDetails): BankAccountInfo
+    {
+        $this->documentDetails = $documentDetails;
 
         return $this;
     }
 
-    public function get__(): string
+    public function getControlsGroups(): ?ControlsGroups
     {
-        return $this->__;
+        return $this->controlsGroups;
+    }
+
+    public function setControlsGroups(?ControlsGroups $controlsGroups): BankAccountInfo
+    {
+        $this->controlsGroups = $controlsGroups;
+
+        return $this;
     }
 }
