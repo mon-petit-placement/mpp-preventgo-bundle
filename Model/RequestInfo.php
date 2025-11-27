@@ -4,9 +4,9 @@ namespace Mpp\PreventgoBundle\Model;
 
 class RequestInfo
 {
-    public const string STATE_IN_PROGRESS = 'IN_PROGRESS';
-    public const string STATE_DONE = 'DONE';
-    public const string STATE_ERROR = 'ERROR';
+    public const STATE_IN_PROGRESS = 'IN_PROGRESS';
+    public const STATE_DONE = 'DONE';
+    public const STATE_ERROR = 'ERROR';
 
     protected ?string $timestamp;
     protected ?string $state;
