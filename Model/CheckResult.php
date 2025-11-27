@@ -4,8 +4,8 @@ namespace Mpp\PreventgoBundle\Model;
 
 abstract class CheckResult
 {
-    const OK = 'OK';
-    const KO = 'KO';
-    const SKIPPED = 'SKIPPED';
-    const FAILED = 'FAILED';
+    public const OK = 'OK';
+    public const KO = 'KO';
+    public const SKIPPED = 'SKIPPED';
+    public const FAILED = 'FAILED';
 }
