@@ -7,9 +7,9 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
-    const CONFIGURATION_ROOT = 'mpp_preventgo';
+    public const string CONFIGURATION_ROOT = 'mpp_preventgo';
 
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder(self::CONFIGURATION_ROOT);
 
